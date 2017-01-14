@@ -1,0 +1,36 @@
+{
+  "name": "swagger-schema-validator",
+  "version": "1.0.0",
+  "description": "An extra step to your CI to validate your swagger schema definitions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel ./src/gulpfile.js --out-file gulpfile.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slate-io/swagger-schema-validator.git"
+  },
+  "keywords": [
+    "swagger",
+    "CI",
+    "swagger",
+    "validator",
+    "API"
+  ],
+  "author": "Brandon Him",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/slate-io/swagger-schema-validator/issues"
+  },
+  "homepage": "https://github.com/slate-io/swagger-schema-validator#readme",
+  "dependencies": {
+    "globby": "^6.1.0",
+    "gulp": "^3.9.1",
+    "swagger-parser": "^3.4.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-env": "^1.1.8"
+  }
+}
