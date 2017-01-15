@@ -15,10 +15,10 @@ var _swaggerParser2 = _interopRequireDefault(_swaggerParser);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _gulp2.default.task('validate', function () {
-  var SCHEMA_PATH = getPath();
-  var patterns = ['./' + SCHEMA_PATH + '/**/swagger.{json,yml,yaml}'];
+  var patterns = ['/data/**/*.swagger.{json,yml,yaml}'];
 
   return (0, _globby2.default)(patterns).then(function (paths) {
+    console.log(paths);
     return Promise.all(paths.map(validate)).then(pass).catch(fail);
   });
 });
@@ -41,9 +41,4 @@ function pass(apis) {
 
 function fail(err) {
   throw new Error(err);
-}
-
-function getPath() {
-  if (typeof process.env.SCHEMA_PATH !== 'string') throw new Error('env SCHEMA_PATH is not defined.');
-  return process.env.SCHEMA_PATH;
 }

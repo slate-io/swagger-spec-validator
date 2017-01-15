@@ -3,10 +3,10 @@ import gulp from 'gulp';
 import swagger from 'swagger-parser';
 
 gulp.task('validate', () => {
-  var SCHEMA_PATH = getPath();
-  var patterns = [`./${SCHEMA_PATH}/**/swagger.{json,yml,yaml}`];
-  
+  var patterns = [`/data/**/*.swagger.{json,yml,yaml}`];
+
   return globby(patterns).then((paths) => {
+
     return Promise.all(paths.map(validate))
       .then(pass)
       .catch(fail);
@@ -34,10 +34,4 @@ function pass(apis) {
 
 function fail(err) {
   throw new Error(err);
-}
-
-function getPath() {
-  if (typeof process.env.SCHEMA_PATH !== 'string')
-    throw new Error('env SCHEMA_PATH is not defined.');
-  return process.env.SCHEMA_PATH;
 }
