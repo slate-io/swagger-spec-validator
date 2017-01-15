@@ -1,6 +1,6 @@
 import globby from 'globby';
 import gulp from 'gulp';
-import {swagger} from 'swagger-parser';
+import swagger from 'swagger-parser';
 
 process.env['SCHEMA_PATH'] = './specs';
 
@@ -8,8 +8,8 @@ gulp.task('validate', () => {
     var SCHEMA_PATH = getPath();
     var patterns = [`./${SCHEMA_PATH}/**/swagger.{json,yml,yaml}`];
     
-    globby(patterns).then((paths) => {
-        Promise.all(paths.map(validate))
+    return globby(patterns).then((paths) => {
+        return Promise.all(paths.map(validate))
             .then(pass)
             .catch(fail);
     });

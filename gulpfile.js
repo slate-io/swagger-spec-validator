@@ -10,6 +10,8 @@ var _gulp2 = _interopRequireDefault(_gulp);
 
 var _swaggerParser = require('swagger-parser');
 
+var _swaggerParser2 = _interopRequireDefault(_swaggerParser);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 process.env['SCHEMA_PATH'] = './specs';
@@ -18,15 +20,15 @@ _gulp2.default.task('validate', function () {
     var SCHEMA_PATH = getPath();
     var patterns = ['./' + SCHEMA_PATH + '/**/swagger.{json,yml,yaml}'];
 
-    (0, _globby2.default)(patterns).then(function (paths) {
-        Promise.all(paths.map(validate)).then(pass).catch(fail);
+    return (0, _globby2.default)(patterns).then(function (paths) {
+        return Promise.all(paths.map(validate)).then(pass).catch(fail);
     });
 });
 
 _gulp2.default.task('default', ['validate']);
 
 function validate(path) {
-    return _swaggerParser.swagger.validate(path);
+    return _swaggerParser2.default.validate(path);
 }
 
 function pass() {
