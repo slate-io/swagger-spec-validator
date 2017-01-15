@@ -16,4 +16,6 @@ Copy the `.travis.yml` file into the root of the repository containing Swagger s
             └── 2017-01-15.swagger.json
 ```
 
+The filenames **MUST** be in the format `*.swagger.json`.
+
 An example can be found [here](https://github.com/slate-io/specifications).
