@@ -1,4 +1,4 @@
-# swagger-schema-validator
+# swagger-schema-validator [![Project Slate](https://img.shields.io/badge/Project-Slate-3e3e3e.svg?style=flat-square)](https://github.com/slate-io)
 
 Validate the integrity of your Swagger API definitions with a few extra steps.
 
