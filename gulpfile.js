@@ -14,8 +14,6 @@ var _swaggerParser2 = _interopRequireDefault(_swaggerParser);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-process.env['SCHEMA_PATH'] = './specs';
-
 _gulp2.default.task('validate', function () {
   var SCHEMA_PATH = getPath();
   var patterns = ['./' + SCHEMA_PATH + '/**/swagger.{json,yml,yaml}'];
