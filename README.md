@@ -5,9 +5,6 @@ Validate and ensure the integrity of your API Swagger specifications to any exis
 ## Usage
 > Swagger files must match the filename format `*.swagger.json`
 
-The docker instance can be an extra step in your CI build, or used to validate specs locally.
-
-### Local
 Pull the docker image from the hub, and follow the steps below to validate.
 
 ```
@@ -18,7 +15,7 @@ $ docker logs $(docker ps -lq)
 ```
 
 ### Travis CI
-Copy or refer to the [`.travis.yml`](https://github.com/slate-io/swagger-spec-validator/blob/master/.travis.yml) file into the root of the repository containing Swagger specifications. The directory containing your Swagger specifications should resemble the following structure:
+Copy the [`.travis.yml`](https://github.com/slate-io/swagger-spec-validator/blob/master/.travis.yml) file into the root of the repository containing your Swagger specifications. Your project repository directory structure resemble the following structure:
 
 ```
 .
@@ -28,8 +25,9 @@ Copy or refer to the [`.travis.yml`](https://github.com/slate-io/swagger-spec-va
     └── ios
         └── 12_4_0
             └── 2017-01-15.swagger.json
+        └── 12_4_1
+            └── 2017-02-15.swagger.json
 ```
-
 
 An example can be found [here](https://github.com/slate-io/specifications).
 
