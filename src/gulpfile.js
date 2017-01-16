@@ -3,9 +3,9 @@ import gulp from 'gulp';
 import swagger from 'swagger-parser';
 
 gulp.task('validate', () => {
-  var patterns = [`/data/**/*.swagger.{json,yml,yaml}`];
+  let patterns = [`/data/**/*.swagger.{json,yml,yaml}`];
 
-  return globby(patterns).then((paths) => {
+  return globby(patterns).then(paths => {
 
     return Promise.all(paths.map(validate))
       .then(pass)
@@ -19,17 +19,16 @@ function validate(path) {
   return swagger.validate(path);
 }
 
-function pass(apis) {
-  if (!apis)
-    console.log('No swagger files found');
+function pass(specifications) {
+  if (!specifications) { throw new Error('No swagger specifications found'); }
 
-  var apiTitles = apis
-                    .map((api) => {
-                      return `${api.info.title} ${api.info.version}`})
-                    .toString()
-                    .replace(',', ' , ');
+  let filenames = specifications
+    .map(specification => {
+      return `${specification.info.title} ${specification.info.version}`})
+        .toString()
+        .replace(',', ' , ');
 
-  console.log(`Swagger API Definition Passed \n\nAPIs Tested: ${apiTitles}`);
+  console.log(`Validation successful\n\nSpecifications tested: ${filenames}`);
 }
 
 function fail(err) {

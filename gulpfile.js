@@ -18,7 +18,7 @@ _gulp2.default.task('validate', function () {
   var patterns = ['/data/**/*.swagger.{json,yml,yaml}'];
 
   return (0, _globby2.default)(patterns).then(function (paths) {
-    console.log(paths);
+
     return Promise.all(paths.map(validate)).then(pass).catch(fail);
   });
 });
@@ -29,14 +29,16 @@ function validate(path) {
   return _swaggerParser2.default.validate(path);
 }
 
-function pass(apis) {
-  if (!apis) console.log('No swagger files found');
+function pass(specifications) {
+  if (!specifications) {
+    throw new Error('No swagger specifications found');
+  }
 
-  var apiTitles = apis.map(function (api) {
-    return api.info.title + ' ' + api.info.version;
+  var filenames = specifications.map(function (specification) {
+    return specification.info.title + ' ' + specification.info.version;
   }).toString().replace(',', ' , ');
 
-  console.log('Swagger API Definition Passed \n\nAPIs Tested: ' + apiTitles);
+  console.log('Validation successful\n\nSpecifications tested: ' + filenames);
 }
 
 function fail(err) {
