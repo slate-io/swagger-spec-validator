@@ -4,7 +4,7 @@ Validate and ensure the integrity of your Swagger API specifications to any exis
 
 ## Usage
 
-> Swagger files **must** match the filename format `*.swagger.json`
+> Swagger files **must** match the filename format: `*.swagger.json` |  `*.swagger.yaml` |  `*.swagger.yml` 
 
 Pull the Docker image from the registry, and follow the steps below to validate:
 
@@ -30,8 +30,10 @@ Copy the [`.travis.yml`](https://github.com/slate-io/swagger-spec-validator/blob
     └── ios
         └── 12_4_0
             └── 2017-01-15.swagger.json
+            └── 2017-01-15.swagger.yml
         └── 12_4_1
             └── 2017-02-15.swagger.json
+            └── 2017-02-15.swagger.yml
 ```
 
 An example repository can be found [here](https://github.com/slate-io/specifications).
