@@ -1,6 +1,9 @@
 language: node_js
 cache: yarn
 sudo: required
+node_js:
+  - '6'
+  - '4'
 env:
   - SPEC_PATH=$(pwd)
 services:
