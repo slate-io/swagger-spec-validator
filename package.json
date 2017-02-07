@@ -4,7 +4,7 @@
   "description": "An extra step to your CI to validate your swagger schema definitions",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "xo"
   },
   "engines": {
     "node": ">=4"
